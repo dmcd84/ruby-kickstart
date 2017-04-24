@@ -30,5 +30,12 @@
 # end
 
 
-def array_init
+def array_init(size=5, &block)
+  block ||= Proc.new { |i| (100*i).to_s }
+  Array.new(size, &block)
 end
+
+# method takes to params - the size of the array and a block.
+# if given a block or statement it will use it, however if not given a block to use,
+# it will default to returning the index multiplied by 100.
+# This is output into a new array. 
